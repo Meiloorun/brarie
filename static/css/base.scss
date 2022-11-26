@@ -1,0 +1,24 @@
+.nav {
+    font-weight: bold;
+    float: left;
+    color: #808080;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #330066;
+    li {
+    float: left;
+    }
+    a {
+    display: block;
+    color: #808080;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+    a:hover {
+    background-color: #444;
+    }
+}
