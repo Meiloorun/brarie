@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'tvapp.apps.TvappConfig',
     'musicapp.apps.MusicappConfig',
     'bookapp.apps.BookappConfig',
+    'peopleapp.apps.PeopleappConfig',
     'sass_processor',
     'django.contrib.admin',
     'django.contrib.auth',

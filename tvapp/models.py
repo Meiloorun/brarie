@@ -5,7 +5,7 @@ class Series(models.Model):
     title = models.CharField(max_length = 128)
     description = models.TextField()
     originalLanguage = models.CharField(max_length=128)
-    status = models.IntegerField(max_length=1) #0 = upcoming, 1 = releasing, 2 = complete, 3 = returning
+    status = models.IntegerField() #0 = upcoming, 1 = releasing, 2 = complete, 3 = returning
     genres = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -14,8 +14,8 @@ class Season(models.Model):
     seasonNumber = models.IntegerField()
     title = models.CharField(max_length = 128)
     description = models.TextField()
-    year = models.IntegerField(max_length = 4)
-    status = models.IntegerField(max_length=1) #0 = upcoming, 1 = releasing, 2 = complete
+    year = models.IntegerField()
+    status = models.IntegerField() #0 = upcoming, 1 = releasing, 2 = complete
     series = models.ForeignKey('Series', on_delete = models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -26,5 +26,7 @@ class Episode(models.Model):
     description = models.TextField()
     date = models.DateTimeField()
     season = models.ForeignKey('Season', on_delete = models.CASCADE)
+    director = models.ForeignKey('peopleapp.Person', on_delete = models.CASCADE, related_name='tvdirector', default=1)
+    writer = models.ForeignKey('peopleapp.Person', on_delete = models.CASCADE, related_name='tvwriter', default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
