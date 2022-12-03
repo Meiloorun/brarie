@@ -1,4 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.core.mail import send_mail, BadHeaderError
+from django.urls import reverse
+from .forms import ContactForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -26,3 +31,7 @@ def contact(request):
         else:
             messages.add_message(request, messages.ERROR, 'Invalid Form Data; Message Not Sent') 
     return render(request, 'homeapp/contact.html', {"form": form})
+
+def browse(request):
+    context = {}
+    return render(request, 'homeapp/browse.html', context)

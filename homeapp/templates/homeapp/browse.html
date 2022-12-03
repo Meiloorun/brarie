@@ -1,0 +1,8 @@
+{% include "base.html" %}
+{% block title %}
+<title>Brarie - Browse</title>
+{% endblock title %}
+{% block content %}
+<ul class="media">
+    <li> <a href="{% url 'movieapp:index' %}">Movies</a></li>
+{% endblock content %}
