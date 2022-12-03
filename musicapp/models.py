@@ -12,5 +12,5 @@ class Song(models.Model):
     artists = models.ManyToManyField('peopleapp.Person', related_name='artists')
     producers = models.ManyToManyField('peopleapp.Person', related_name='producers')
     writers = models.ManyToManyField('peopleapp.Person', related_name='songwriters')
-    length = models.IntegerField() #in minutes
+    length = models.IntegerField() #length of song in minutes
     Album = models.ForeignKey(Album, on_delete = models.CASCADE)
