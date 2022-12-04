@@ -1,0 +1,11 @@
+{% include "base.html" %}
+{% block content %}
+    <body>
+        <h2>{{ movie.title }}</h2><hr>
+        <p> {{ movie.description }}</p><hr>
+        <p> Created:{{ movie.created_at }}</p>
+        <p> Last Updated: {{ movie.updated_at }}</p>
+        <input type="button" onclick="location.href='{% url 'movieapp:movie_update' movie.id %}';" value="Edit" />
+        <input type="button" onclick="location.href='{% url 'movieapp:movie_delete' movie.id %}';" value="Delete" />
+    </body>
+{% endblock content %}

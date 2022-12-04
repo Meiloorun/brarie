@@ -5,3 +5,7 @@ class Person(models.Model):
     firstname = models.CharField(max_length=128)
     secondname = models.CharField(max_length=128)
     bio = models.TextField()
+
+    def __str__(self):
+        return self.firstname + ' ' + self.secondname
+    
