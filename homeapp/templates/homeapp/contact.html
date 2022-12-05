@@ -4,12 +4,35 @@
 {% endblock title %}
 {% block content %}
 <h1>Contact Us</h1>
-<form method="post">
+<form id="form" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <div class="form-actions">
     <button
    type="submit">Send</button>
     </div>
-   </form>
+</form>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#form").validate();
+    });
+
+    jQuery(document).ready(function() {
+        jQuery("#forms").validate({
+           rules: {
+              email: {
+                 required: true,
+                 email: true,//add an email rule that will ensure the value entered is valid email id.
+                 maxlength: 255,
+              },
+           }
+           messages: {
+            u_email: 'Enter a valid email address',
+            },
+        });
+     });
+
+    
+</script>
 {% endblock content %} 

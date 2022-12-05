@@ -27,7 +27,7 @@ def contact(request):
                 messages.add_message(request, messages.ERROR, 'Message Not Sent')
                 return HttpResponse("Invalid header found.")
             messages.add_message(request, messages.SUCCESS, 'Message Sent')
-            return redirect(reverse('home')) 
+            return redirect(reverse('homeapp:home')) 
         else:
             messages.add_message(request, messages.ERROR, 'Invalid Form Data; Message Not Sent') 
     return render(request, 'homeapp/contact.html', {"form": form})
