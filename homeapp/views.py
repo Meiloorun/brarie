@@ -35,3 +35,7 @@ def contact(request):
 def browse(request):
     context = {}
     return render(request, 'homeapp/browse.html', context)
+
+def about(request):
+    context = {}
+    return render(request, 'homeapp/about.html', context)
