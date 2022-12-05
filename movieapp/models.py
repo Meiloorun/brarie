@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Movie(models.Model):
-    title = models.CharField(max_length = 128)
+    title = models.CharField(max_length = 128, unique=True)
     releaseDate = models.DateField()
     description = models.TextField()
     status = models.IntegerField() #0 = unreleased, 1 = theatrically released, 2 = digitally released
@@ -13,3 +13,6 @@ class Movie(models.Model):
     originalLanguage = models.CharField(max_length=128)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        indexes = [models.Index(fields=['title']),]
