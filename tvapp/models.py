@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Series(models.Model):
-    title = models.CharField(max_length = 128)
+    title = models.CharField(max_length = 128, unique=True)
     description = models.TextField()
     originalLanguage = models.CharField(max_length=128)
     status = models.IntegerField() #0 = upcoming, 1 = releasing, 2 = complete, 3 = returning

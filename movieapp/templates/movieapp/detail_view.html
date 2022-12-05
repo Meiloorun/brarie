@@ -9,6 +9,7 @@
         <p>Theatrically Released</p>
         {% elif movie.status == 2 %}
         <p>Digitally Released</p>
+        {% endif %}
         <p> {{ movie.releaseDate }}</p>
         <p> {{ movie.genres }} </p>
         <p> {{ movie.originalLanguage }} </p>

@@ -1,24 +1,46 @@
+$purple-1: #330066;
+$purple-2: #190033;
+$text-colour: #808080;
+
 .nav {
     font-weight: bold;
     float: left;
-    color: #808080;
+    color: $text-colour;
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow: hidden;
-    background-color: #330066;
+    overflow: visible;
+    background-color: $purple-1;
+    align-items: center;
+    display: flex;
     li {
-    float: left;
+    justify-content: center;
+    margin-bottom: -20px;
+    margin-left: 200px;
+    margin-top: -10px;
     }
     a {
     display: block;
-    color: #808080;
+    color: $text-colour;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 18px;
     text-decoration: none;
     }
     a:hover {
-    background-color: #444;
+    background-color: rgb(139, 27, 190);
     }
+    img {
+        top: 20px;
+        position: relative;
+    }
+}
+
+body {
+    background-color: $purple-2;
+    color: $text-colour;
+}
+
+.footer {
+    display: inline-block;
 }
