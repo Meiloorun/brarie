@@ -1,0 +1,40 @@
+{% include "base.html" %}
+{% block title %}
+    <title>Brarie - Series</title>
+{% endblock title %}
+{% block content %}
+<table>
+    <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Age Rating</th>
+    <th>Status</th>
+    </tr>
+    {% for Series in series_list %}
+    <tr>
+    <td>
+    <a href="{% url 'tvapp:detailed_series_view' Series.id %}">
+    {{ Series.title | truncatechars:20}}</a>
+    </td>
+    <td>
+    {{ Series.description | truncatechars:25}}
+    </td>
+    <td>
+    {{Series.genres}}
+    </td>
+    <td>
+    {% if Series.status == 0 %}
+    Upcoming
+    {% elif Series.status == 1 %}
+    Releasing
+    {% elif Series.status == 2 %}
+    Complete
+    {% elif Series.status == 3 %}
+    Returning
+    {% endif %}
+    </td>
+    </tr>
+    {% endfor %}
+</table> <hr/>
+<input type="button" onclick="location.href='{% url 'tvapp:new_series' %}';" value="New" />
+{% endblock content %}

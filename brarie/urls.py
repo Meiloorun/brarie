@@ -20,4 +20,6 @@ urlpatterns = [
     path('', include('homeapp.urls', namespace='homeapp')),
     path('admin/', admin.site.urls),
     path('movies/', include('movieapp.urls', namespace='movieapp')),
+    path('people/', include('peopleapp.urls', namespace='peopleapp')),
+    path('tv/', include('tvapp.urls', namespace='tvapp')),
 ]

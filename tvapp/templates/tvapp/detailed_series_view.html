@@ -1,0 +1,39 @@
+{% include "base.html" %}
+{% block content %}
+    <body>
+        <h2>{{ series.title }}</h2><hr>
+        <p> {{ series.description }}</p><hr>
+        <p> Created:{{ series.created_at }}</p>
+        <p> Last Updated: {{ series.updated_at }}</p>
+        <table>
+            <tr>
+                <th>Season Number</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Status</th>
+            </tr>
+            {% for Season in seasons %}
+            <tr>
+                <td>{{ Season.seasonNumber }}</td>
+                <td>
+                    <a href="{% url 'tvapp:detailed_season_view' nid=series.id seid=Season.id %}">
+                        {{ Season.title }}</a> 
+                </td>
+                <td>{{ Season.year }}</td>
+                <td>
+                    {% if Season.status == 0 %}
+                    Upcoming
+                    {% elif Season.status == 1 %}
+                    Releasing
+                    {% elif Season.status == 2 %}
+                    Complete
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <input type="button" onclick="location.href='{% url 'tvapp:new_season' series.id %}';" value="New Season" />
+        <input type="button" onclick="location.href='{% url 'tvapp:series_update' series.id %}';" value="Edit" />
+        <input type="button" onclick="location.href='{% url 'tvapp:series_delete' series.id %}';" value="Delete" />
+    </body>
+{% endblock content %}

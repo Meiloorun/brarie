@@ -1,0 +1,11 @@
+{% include "base.html" %}
+{% block content %}
+    <body>
+        <h2>{{ person.firstname }} {{ person.secondname }}</h2><hr>
+        <p> {{ person.bio }}</p><hr>
+        <p> Created:{{ person.created_at }}</p>
+        <p> Last Updated: {{ person.updated_at }}</p>
+        <input type="button" onclick="location.href='{% url 'peopleapp:person_update' person.id %}';" value="Edit" />
+        <input type="button" onclick="location.href='{% url 'peopleapp:person_delete' person.id %}';" value="Delete" />
+    </body>
+{% endblock content %}

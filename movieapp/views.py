@@ -16,7 +16,7 @@ def create_view(request):
         if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, 'Movie Created')
-            return redirect('movie_library')       
+            return redirect('movieapp:movie_library')       
         else:
             messages.add_message(request, messages.ERROR, 'Invalid Form Data; Movie not created')
 

@@ -3,6 +3,18 @@
     <body>
         <h2>{{ movie.title }}</h2><hr>
         <p> {{ movie.description }}</p><hr>
+        {% if movie.status == 0 %}
+        <p>Unreleased</p>
+        {% elif movie.status == 1 %}
+        <p>Theatrically Released</p>
+        {% elif movie.status == 2 %}
+        <p>Digitally Released</p>
+        <p> {{ movie.releaseDate }}</p>
+        <p> {{ movie.genres }} </p>
+        <p> {{ movie.originalLanguage }} </p>
+        <p> {{ movie.ageRating }} </p><hr>
+        <p> {{ movie.director }} </p>
+        <p> {{ movie.writer }} </p>
         <p> Created:{{ movie.created_at }}</p>
         <p> Last Updated: {{ movie.updated_at }}</p>
         <input type="button" onclick="location.href='{% url 'movieapp:movie_update' movie.id %}';" value="Edit" />

@@ -1,0 +1,19 @@
+{% include "base.html" %}
+{% block title %}
+    <title>Brarie - People</title>
+{% endblock title %}
+{% block content %}
+<table>
+    <tr>
+    <th>Name</th>
+    </tr>
+    {% for Person in person_list %}
+    <tr>
+    <td>
+    <a href="{% url 'peopleapp:person_detail' Person.id %}">
+    {{ Person.firstname }} {{ Person.secondname }}</a>
+    </td>
+    {% endfor %}
+</table> <hr/>
+<input type="button" onclick="location.href='{% url 'peopleapp:new_person' %}';" value="New" />
+{% endblock content %}
